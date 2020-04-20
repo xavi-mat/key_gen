@@ -1,2 +1,2 @@
 # key_gen
-Generates secure formated keys
+Generates secure formated keys.
