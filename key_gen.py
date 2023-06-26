@@ -9,9 +9,9 @@ without confusing characters: 1,I,i,0,O,o.
 """
 
 
-__version__ = "1.0"
+__version__ = "1.1"
 __author__ = "Xavimat"
-__date__ = "2020-04-20"
+__date__ = "2023-06-26"
 
 
 import argparse
@@ -64,11 +64,18 @@ def key_gen(blocks=3, chars=5, length=32, keys=1000, filename="keys.txt"):
     - filename: str, name of file with one key per line.
     """
 
+    # Generate, avoiding repetition
+    keys_set = set([gen_a_key(blocks, chars, length) for _ in range(keys)])
+
+    while len(keys_set) < keys:
+
+        keys_set.add(gen_a_key(blocks, chars, length))
+
     with open(filename, "w") as t:
 
-        for _ in range(keys):
+        for k in keys_set:
 
-            t.write(gen_a_key(blocks, chars, length) + "\n")
+            t.write(k + "\n")
 
 
 # PARSING ARGUMENTS:
