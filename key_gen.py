@@ -9,9 +9,9 @@ without confusing characters: 1,I,i,0,O,o,l
 """
 
 
-__version__ = "1.0"
+__version__ = "1.1"
 __author__ = "Xavimat"
-__date__ = "2020-04-20"
+__date__ = "2023-06-26"
 
 
 import argparse
