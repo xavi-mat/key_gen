@@ -5,13 +5,13 @@ Key generator.
 
 Generates secure formated keys. Can be used to unlock elements in apps and
 games, like 'External Keys' on itch.io. Uses a sequence of numbers and letters
-without confusing characters: 1,I,i,0,O,o.
+without confusing characters: 1,I,i,0,O,o,l
 """
 
 
-__version__ = "1.1"
+__version__ = "1.0"
 __author__ = "Xavimat"
-__date__ = "2023-06-26"
+__date__ = "2020-04-20"
 
 
 import argparse
@@ -22,8 +22,8 @@ import secrets
 
 # 32 characters:
 # seq32 = "23456789ABCDEFGHJKLMNPQRSTUVWXYZ"
-# 56 characters:
-SEQ = "23456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghjklmnpqrstuvwxyz"
+# 55 characters:
+SEQ = "23456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghjkmnpqrstuvwxyz"
 
 
 def gen_a_key(blocks=3, chars=5, length=32):
@@ -35,10 +35,10 @@ def gen_a_key(blocks=3, chars=5, length=32):
     - length: int, number of elegible characters.
     """
 
-    if length <= 56:
+    if length <= 55:
         seq = SEQ[:length]
     else:
-        raise ValueError("Sequence too large (max 56).")
+        raise ValueError("Sequence too large (max 55).")
 
     r = ""
 
@@ -91,7 +91,7 @@ _parser.add_argument("-f",
 _parser.add_argument("-k", type=int,
     help="number of generated keys (default 1000)", default=1000)
 _parser.add_argument("-l", type=int,
-    help="number of random characters (recomended 32, max 56)", default=32)
+    help="number of random characters (recomended 32, max 55)", default=32)
 
 
 # EXECUTE:
